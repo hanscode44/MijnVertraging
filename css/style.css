@@ -1,0 +1,207 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+@import url(http://weloveiconfonts.com/api/?family=entypo);
+/* entypo */
+[class*="entypo-"]:before {
+    font-family: 'entypo', sans-serif;
+    padding-right: 15px;
+    opacity: 0.8;
+}
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    background: #fafafa;
+    max-width: 100%;
+    padding: 10px;
+    font-family: 'Lato', sans-serif;
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.004);
+    font-size: 100%;
+    font-weight: 400;
+}
+
+a {
+    text-decoration: none;
+}
+h1, h2, h3, h4, h5, h6{
+    color: #101010;
+    padding: 5px 0;
+    margin: 5px 0;
+    display: block;
+}
+h1{
+    font-size: 20px;
+}
+
+h2{
+    font-size: 18px;
+}
+
+h3{
+    font-size: 14px;
+}
+
+nav {
+    background-color: #fbc833;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 10000;
+    position: fixed;
+    margin: 0px 0px 20px;
+    line-height: 65px;
+    overflow: hidden;
+    border: 1px solid #FFF;
+}
+
+nav:before, nav:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    display: inline;
+    width: auto;
+    height: auto !important;
+    list-style: none;
+    float: right;
+}
+
+nav ul li {
+    float: left;
+    margin: 0;
+    padding: 0px 20px;
+    text-align: center;
+    cursor: default;
+    color: #FFF;
+    font-size: 0.875em;
+    font-weight: 600;
+    width: 100%;
+}
+
+.siteTitle {
+    float: left;
+    margin: 0;
+    padding: 0 25px;
+    font-size: 1.25em;
+    font-weight: 700;
+    color: #1151A3;
+    border-left: 1px solid #f6c036;
+    border-right: 1px solid #f6c036;
+    background: #FC3;
+    box-shadow: 0px 0px 2px #f6c036;
+}
+
+
+.container {
+    margin-top: 90px;
+}
+
+.treinRit{
+    background: #FDFDFD;
+    color: #202020;
+    display: block;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 0px 0px 5px #C2C2C2;
+    border: 2px solid #FFF;
+}
+
+.treinRit:hover {
+    background: #0081C9;
+    box-shadow: 0px 0px 2px #009FF8;
+    color: white;
+}
+
+.vertrekTijdInfo{
+    border-right: 1px solid #EFEFEF;
+    float: left;
+    padding-right: 15px;
+    margin-right: 15px;
+}
+
+.vertrekTijdInfo .vertrekVertraging{
+    padding: 0px 5px;
+}
+
+.treinRitDetails{
+    display: none;
+    background: #f7f7f7;
+    padding: 10px;
+    margin: 10px;
+    font-style: italic;
+}
+
+.treinRit:hover .treinRitDetails{
+    background: #007bc3;
+}
+
+.arrow {
+    padding: 8px;
+    box-shadow: 3px -3px 0 1px #007bc3 inset;
+    position: relative;
+    display: inline-block;
+    float: right;
+}
+
+.treinRit:hover .arrow{
+    box-shadow: 3px -3px 0 1px #f7f7f7 inset;
+}
+.arrow-left {
+    transform: rotate(45deg);
+    left: 20px;
+}
+.arrow-right {
+    transform: rotate(225deg);
+    right: 20px;
+}
+.arrow-up {
+    transform: rotate(135deg);
+    top: 5px;
+    right: 20px;
+}
+.arrow-down {
+    transform: rotate(-45deg);
+    right: 20px;
+}
+
+.ritNummer{
+
+}
+.vertrekTijd{
+
+}
+.vertrekVertragingTekst{
+
+}
+.eindBestemming{
+
+}
+.treinSoort{
+
+}
+.routeTekst{
+    content:'\U+E727';
+
+}
+.vertrekSpoor{
+
+}
+.vertrekSpoorGewijzigd{
+
+}
+.reisTip{
+    content:'\U+E727';
+}
+
+.red{
+    color: #EE0000;
+    font-weight: bold;
+}
+
