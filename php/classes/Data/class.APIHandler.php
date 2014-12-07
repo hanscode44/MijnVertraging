@@ -26,6 +26,10 @@ class APIHandler {
         return $this->getXMLContent("http://webservices.ns.nl/ns-api-avt",$parameters);
     }
 
+    public function  getStations(){
+        return $this->getXMLContent("http://webservices.ns.nl/ns-api-stations-v2", null);
+    }
+
     public function getXMLContent($url, $parameters){
         $loginDetails = $this->NSApiConfig->getConfig();
 

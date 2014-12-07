@@ -1,13 +1,5 @@
 <?php
-class ViewController {
-
-    public static function getInstance(){
-        static $instance = null;
-        if (null === $instance) {
-            $instance = new ViewController();
-        }
-        return $instance;
-    }
+class ViewController extends Singleton {
 
     public function getTreinen(){
         return TreinManager::getInstance()->getTreinen();
@@ -16,6 +8,11 @@ class ViewController {
     public function renderHomepage(){
         $homepage = new HomepageView($this->getTreinen());
         echo $homepage->getHtml();
+    }
+
+    public function renderAutoComplete(){
+        $autoComplete = new AutoCompleteView();
+        echo $autoComplete->getHtml();
     }
 
 }

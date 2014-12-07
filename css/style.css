@@ -53,7 +53,7 @@ nav {
     position: fixed;
     margin: 0px 0px 20px;
     line-height: 65px;
-    overflow: hidden;
+    overflow: visible;
     border: 1px solid #FFF;
 }
 
@@ -63,26 +63,9 @@ nav:before, nav:after {
     clear: both;
 }
 
-nav ul {
-    margin: 0;
-    padding: 0;
-    display: inline;
-    width: auto;
-    height: auto !important;
-    list-style: none;
+nav .headerAlignRight{
     float: right;
-}
-
-nav ul li {
-    float: left;
-    margin: 0;
-    padding: 0px 20px;
-    text-align: center;
-    cursor: default;
-    color: #FFF;
-    font-size: 0.875em;
-    font-weight: 600;
-    width: 100%;
+    padding: 0px 25px;
 }
 
 .siteTitle {
@@ -203,5 +186,84 @@ nav ul li {
 .red{
     color: #EE0000;
     font-weight: bold;
+}
+
+
+
+
+#searchform {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 500px;
+}
+
+#search-bar {
+    display: block;
+    float:left;
+    padding: .25em .5em;
+    font-size: 1.2em;
+    height: 55px;
+    margin: 5px 0;
+}
+
+.output {
+    list-style: none;
+    min-height: 0px;
+    border-top: 0 !important;
+    color: #767676;
+    transition: min-height 0.2s;
+    position: absolute;
+    z-index: 5;
+    padding: 0px;
+    top: 60px;
+}
+
+.output, #search-bar {
+    background: #fff;
+    display: block;
+}
+
+.prediction-item {
+    padding: .5em .75em;
+    transition: color 0.2s, background 0.2s;
+    line-height: 20px;
+}
+
+.output:hover .focus {
+    background: #fff;
+    color: #767676;
+}
+
+.prediction-item:hover, .focus,
+.output:hover .focus:hover {
+    background: #ddd;
+    color: #333;
+}
+
+.prediction-item:hover {
+    cursor: pointer;
+}
+
+.prediction-item strong { color: #333; }
+.prediction-item:hover strong { color: #000; }
+
+
+#submit {
+    display: block;
+    padding: .25em .5em;
+    font-size: 1.2em;
+    color: #FFF;
+    border: 1px solid #009FF8;
+    background: #0081C9;
+    transition: color 0.2s, background 0.2s;
+    height: 55px;
+    margin: 5px 0;
+}
+
+#submit:hover {
+    color: #fff;
+    background: #0094e0;
+    box-shadow: 0px 0px 2px #009FF8;
 }
 

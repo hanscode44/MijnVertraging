@@ -1,5 +1,6 @@
 <?php
 require('php/config/conf.default.php');
+require('php/config/conf.NSApiConfig.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -7,17 +8,20 @@ require('php/config/conf.default.php');
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script src="js/documentready.js"></script>
+    <title>MijnVertraging</title>
+    <meta charset="utf-8">
 </head>
 <body>
 <header>
 <nav role="navigation">
-    <a href="index.php">
-        <div class="siteTitle">MijnVertraging</div>
+    <a href="index.php" class="siteTitle">
+        <div >MijnVertraging</div>
     </a>
 
-    <ul>
-        <li class="siteSlogan">Testproject</li>
-    </ul>
+
+    <div class="headerAlignRight">
+        <?php ViewController::getInstance()->renderAutoComplete(); ?>
+    </div>
 
 </nav>
 </header>

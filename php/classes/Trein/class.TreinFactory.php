@@ -1,14 +1,5 @@
 <?php
-class TreinFactory {
-
-    public static function getInstance()
-    {
-        static $instance = null;
-        if (null === $instance) {
-            $instance = new TreinFactory();
-        }
-        return $instance;
-    }
+class TreinFactory extends Singleton {
 
     public function loadTreinen() {
         $XMLInput = APIHandler::getInstance()->getVertrekTijden("Rotterdam");

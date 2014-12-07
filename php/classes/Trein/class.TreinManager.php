@@ -1,19 +1,10 @@
 <?php
-class TreinManager {
+class TreinManager extends Singleton{
 
 
     private $treinen;
-    private function __construct() {
+    public function __construct() {
         $this->treinen = array();
-    }
-
-    public static function getInstance()
-    {
-        static $instance = null;
-        if (null === $instance) {
-            $instance = new TreinManager();
-        }
-        return $instance;
     }
 
     public function addTrein(Trein $trein) {
