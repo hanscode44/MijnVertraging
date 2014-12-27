@@ -1,19 +1,10 @@
 <?php
 
-class APIHandler {
+class APIHandler extends Singleton{
     private $NSApiConfig;
 
     function __construct() {
         $this->NSApiConfig = new NSApiConfig();
-    }
-
-
-    public static function getInstance() {
-        static $instance = null;
-        if (null === $instance) {
-            $instance = new APIHandler();
-        }
-        return $instance;
     }
 
     public function getVertrekTijden($station) {
