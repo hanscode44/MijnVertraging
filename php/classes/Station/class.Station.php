@@ -11,8 +11,7 @@ class Station extends Singleton{
     public function getAlleStations(){
 
         $XMLInput = APIHandler::getInstance()->getStations();
-
-        $xml = new SimpleXMLElement($XMLInput);
+        $xml = new SimpleXMLElement(file_get_contents($XMLInput));
 
         $array = array();
 

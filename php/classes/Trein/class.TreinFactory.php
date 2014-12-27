@@ -3,7 +3,7 @@ class TreinFactory extends Singleton {
 
     public function loadTreinen() {
         $XMLInput = APIHandler::getInstance()->getVertrekTijden("Rotterdam");
-        $xml = new SimpleXMLElement($XMLInput);
+        $xml = new SimpleXMLElement(file_get_contents($XMLInput));
 
         foreach ($xml->VertrekkendeTrein as $xmlVertrekkendeTrein)
         {
