@@ -38,6 +38,11 @@ class HomepageView extends GeneralView{
             }
             echo '</div>';
             echo '<span class="eindBestemming">' . $trein->getEindbestemming() . '</span>';
+            if($trein->getOpmerkingen() != null){
+                foreach($trein->getOpmerkingen() as $opmerking){
+                    echo '<span class="opmerking red"> ' . $opmerking . '</span>';
+                }
+            }
             echo '<span class="arrow arrow-down"></span>';
             echo '<div class="treinRitDetails">';
             if ($trein->getRouteTekst() != "") {

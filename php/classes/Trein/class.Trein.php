@@ -10,6 +10,7 @@ class Trein {
     private $vertrekSpoor;
     private $vertrekSpoorGewijzigd;
     private $reisTip;
+    private $opmerkingen;
 
 
     public function __construct($trein)
@@ -31,6 +32,16 @@ class Trein {
     {
         return $this->eindBestemming;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getOpmerkingen()
+    {
+        return $this->opmerkingen;
+    }
+
+
 
     /**
      * @return mixed

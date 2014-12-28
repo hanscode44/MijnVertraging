@@ -28,7 +28,15 @@ class TreinFactory extends Singleton {
             $vertrekSpoorGewijzigd = (string)($xmlVertrekkendeTrein->VertrekSpoor['wijziging']);
             $routeTekst = (string)$xmlVertrekkendeTrein->RouteTekst;
             $reisTip = (string)$xmlVertrekkendeTrein->ReisTip;
-            $this->loadTrein($ritNummer, $vertrekTijd, $vertrekVertragingTekst, $eindBestemming, $treinSoort, $routeTekst, $vertrekSpoor, $vertrekSpoorGewijzigd, $reisTip);
+            $opmerkingen = array();
+            if ($xmlVertrekkendeTrein->Opmerkingen->Opmerking !== NULL)
+            {
+                foreach ($xmlVertrekkendeTrein->Opmerkingen->Opmerking as $xmlOpmerking)
+                {
+                    $opmerkingen[] = trim((string)$xmlOpmerking);
+                }
+            }
+            $this->loadTrein($ritNummer, $vertrekTijd, $vertrekVertragingTekst, $eindBestemming, $treinSoort, $routeTekst, $vertrekSpoor, $vertrekSpoorGewijzigd, $reisTip, $opmerkingen);
         }
         return $xml;
         }
@@ -37,7 +45,7 @@ class TreinFactory extends Singleton {
         }
     }
 
-    public function loadTrein($ritNummer, $vertrekTijd, $vertrekVertragingTekst, $eindBestemming, $treinSoort, $routeTekst, $vertrekSpoor, $vertrekSpoorGewijzigd, $reisTip){
+    public function loadTrein($ritNummer, $vertrekTijd, $vertrekVertragingTekst, $eindBestemming, $treinSoort, $routeTekst, $vertrekSpoor, $vertrekSpoorGewijzigd, $reisTip, $opmerkingen){
         $trein = new Trein(array(
             'ritNummer' => $ritNummer,
             'vertrekTijd' => $vertrekTijd,
@@ -47,7 +55,8 @@ class TreinFactory extends Singleton {
             'routeTekst' => $routeTekst,
             'vertrekSpoor' => $vertrekSpoor,
             'vertrekSpoorGewijzigd' => $vertrekSpoorGewijzigd,
-            'reisTip' => $reisTip
+            'reisTip' => $reisTip,
+            'opmerkingen' => $opmerkingen
         ));
 
         TreinManager::getInstance()->addTrein($trein);
