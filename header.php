@@ -1,6 +1,11 @@
 <?php
 require('php/config/conf.default.php');
 require('php/config/conf.NSApiConfig.php');
+if(isset($_POST["station"]))   {
+    $station = $_POST["station"];
+    $cookie_value = $station;
+    setcookie("stationActueleVertrektijden", $cookie_value, time() + (86400 * 30), '/'); // 86400 = 1 day
+}
 ?>
 <!DOCTYPE html>
 <html>

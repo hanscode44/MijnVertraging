@@ -11,7 +11,19 @@ class Station extends Singleton{
     public function getAlleStations(){
 
         $XMLInput = APIHandler::getInstance()->getStations();
-        $xml = new SimpleXMLElement(file_get_contents($XMLInput));
+
+        /*
+         * Check for XML-file. If it's a cache-file, use file_get_contents
+         */
+        if (@simplexml_load_file($XMLInput))
+        {
+            $xml = new SimpleXMLElement(file_get_contents($XMLInput));
+        }
+        else
+        {
+            $xml = new SimpleXMLElement($XMLInput);
+        }
+
 
         $array = array();
 
@@ -35,10 +47,6 @@ class Station extends Singleton{
         sort($array);
         $array = json_encode($array);
         $array = htmlspecialchars($array, ENT_QUOTES );
-
-//        file_put_contents("cache_file", serialize($array));
-//        unserialize(file_get_contents("cache_file"));
-
 
         return $array;
 

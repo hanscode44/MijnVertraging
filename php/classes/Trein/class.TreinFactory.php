@@ -2,8 +2,25 @@
 class TreinFactory extends Singleton {
 
     public function loadTreinen() {
-        $XMLInput = APIHandler::getInstance()->getVertrekTijden("Rotterdam");
-        $xml = new SimpleXMLElement(file_get_contents($XMLInput));
+        if(isset($_COOKIE["stationActueleVertrektijden"]) || isset($_POST["station"])){
+            if(isset($_POST["station"])){
+                $station = $_POST["station"];
+            }
+            else{
+                $station = $_COOKIE["stationActueleVertrektijden"];
+            }
+        $XMLInput = APIHandler::getInstance()->getVertrekTijden($station);
+        /*
+         * Check for XML-file. If it's a cache-file, use file_get_contents
+         */
+        if (@simplexml_load_file($XMLInput))
+        {
+            $xml = new SimpleXMLElement(file_get_contents($XMLInput));
+        }
+        else
+        {
+            $xml = new SimpleXMLElement($XMLInput);
+        }
 
         foreach ($xml->VertrekkendeTrein as $xmlVertrekkendeTrein)
         {
@@ -19,6 +36,10 @@ class TreinFactory extends Singleton {
             $this->loadTrein($ritNummer, $vertrekTijd, $vertrekVertragingTekst, $eindBestemming, $treinSoort, $routeTekst, $vertrekSpoor, $vertrekSpoorGewijzigd, $reisTip);
         }
         return $xml;
+        }
+        else{
+
+        }
     }
 
     public function loadTrein($ritNummer, $vertrekTijd, $vertrekVertragingTekst, $eindBestemming, $treinSoort, $routeTekst, $vertrekSpoor, $vertrekSpoorGewijzigd, $reisTip){

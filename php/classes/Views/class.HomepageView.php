@@ -7,6 +7,33 @@ class HomepageView extends GeneralView{
 
     public function getHtml(){
         ob_start();
+
+        echo '<div class="introductie">';
+        if(isset($_COOKIE["stationActueleVertrektijden"]) || isset($_POST["station"])){
+            if(isset($_POST["station"])){
+                $station = $_POST["station"];
+            }
+            else{
+                $station = $_COOKIE["stationActueleVertrektijden"];
+            }
+
+            echo "Je bekijkt de actuele vertrektijden van het station " . $station;
+            echo '</div>';
+            echo $this->getVertrektijden();
+        }
+        else {
+            echo "Er is nog geen staton gekozen. Zoek in de balk bovenaan de pagina naar het gewenste station";
+            echo $this->getVertrektijden();
+        }
+
+
+
+        return ob_get_clean();
+
+    }
+
+    public function getVertrektijden(){
+        ob_start();
         echo '<div id="vertrektijden">';
         foreach ($this->getTreinen() as $trein) {
             echo '<div class="treinRit">';
@@ -25,13 +52,15 @@ class HomepageView extends GeneralView{
             echo '<span class="entypo-doc-text ritNummer">Ritnummer: ' . $trein->getRitNummer() . '</span><br />';
             echo '<span class="entypo-address vertrekSpoor ' . ($trein->getVertrekSpoorGewijzigd() == "true" ? "red":"") . '">Spoor: ' . $trein->getVertrekSpoor() . '</span><br />';
             if ($trein->getReisTip() != ""){
-            echo '<span class="entypo-info-circled entypo-reisTip">Reistip: ' . $trein->getReisTip() . '</span>';
+                echo '<span class="entypo-info-circled entypo-reisTip">Reistip: ' . $trein->getReisTip() . '</span>';
             }
             echo '</div>';
             echo '</div>';
         }
-        return ob_get_clean();
         echo '</div>';
+
+        return ob_get_clean();
+
     }
 
 } 

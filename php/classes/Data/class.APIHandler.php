@@ -16,7 +16,7 @@ class APIHandler extends Singleton{
         $cacheName = "vertrekTijden" . implode("", $parameters);
         $cacheDuration = 60; // 1 minuut
 
-        return $this->getCachedXMLFile($cacheName, $cacheDuration, $url, $parameters);
+        return CacheHandler::getInstance()->getCachedXMLFile($cacheName, $cacheDuration, $url, $parameters);
     }
 
     public function getStations(){
@@ -24,24 +24,9 @@ class APIHandler extends Singleton{
         $cacheDuration = 60 * 60 * 24; // 24 uur
         $url = 'http://webservices.ns.nl/ns-api-stations-v2';
 
-        return $this->getCachedXMLFile($cacheName, $cacheDuration, $url, null);;
+        return CacheHandler::getInstance()->getCachedXMLFile($cacheName, $cacheDuration, $url, null);
     }
 
-    public function getCachedXMLFile($cacheName, $cacheDuration, $url, $parameters = null){
-        $this->$cacheDuration = $cacheDuration;
-        $cacheFolder = "cache/";
-        $cacheFile = $cacheFolder . $cacheName . '.cache';
-        $modifyFileTime = filemtime($cacheFile) + $cacheDuration;
-        if(!file_exists($cacheFile) || $modifyFileTime < time()) {
-            $contents = $this->getXMLContent($url, $parameters);
-            file_put_contents($cacheFile, $contents);
-            debugToConsole($cacheFile . " toegevoegd aan cache voor " . $cacheDuration .  " seconden.");
-        }
-        else{
-            debugToConsole("Cachebestand (" . $cacheName . ") geladen. Aanmaakdatum: " . date("d-m-Y H:i:s",filemtime($cacheFile)));
-        }
-        return $cacheFile;
-    }
 
     /*
      *
