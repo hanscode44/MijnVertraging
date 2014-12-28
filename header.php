@@ -1,10 +1,8 @@
 <?php
 require('php/config/conf.default.php');
 require('php/config/conf.NSApiConfig.php');
-if(isset($_POST["station"]))   {
-    $station = $_POST["station"];
-    $cookie_value = $station;
-    setcookie("stationActueleVertrektijden", $cookie_value, time() + (86400 * 30), '/'); // 86400 = 1 day
+if(isset($_POST["StationActueleVertrekTijden"]))   {
+    PostCookie::getInstance()->setPostCookieValue("StationActueleVertrekTijden",$_POST["StationActueleVertrekTijden"]);
 }
 ?>
 <!DOCTYPE html>

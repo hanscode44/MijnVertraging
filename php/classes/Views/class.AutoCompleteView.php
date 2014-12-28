@@ -13,7 +13,7 @@ class AutoCompleteView {
 
 
         echo '<form action="index.php" method="post">';
-        echo '<input type="text" name="station" id="search-bar" autocomplete="off"/>';
+        echo '<input type="text" name="StationActueleVertrekTijden" id="search-bar" autocomplete="off"/>';
         echo '<ul class="output" data-stations="';
         echo (Station::getInstance()->getAlleStations());
         echo '" style="display:none;"></ul>';

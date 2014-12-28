@@ -9,14 +9,8 @@ class HomepageView extends GeneralView{
         ob_start();
 
         echo '<div class="introductie">';
-        if(isset($_COOKIE["stationActueleVertrektijden"]) || isset($_POST["station"])){
-            if(isset($_POST["station"])){
-                $station = $_POST["station"];
-            }
-            else{
-                $station = $_COOKIE["stationActueleVertrektijden"];
-            }
-
+        $station = PostCookie::getInstance()->getPostCookieValue("StationActueleVertrekTijden");
+        if(isset($station)){
             echo "Je bekijkt de actuele vertrektijden van het station " . $station;
             echo '</div>';
             echo $this->getVertrektijden();

@@ -2,13 +2,8 @@
 class TreinFactory extends Singleton {
 
     public function loadTreinen() {
-        if(isset($_COOKIE["stationActueleVertrektijden"]) || isset($_POST["station"])){
-            if(isset($_POST["station"])){
-                $station = $_POST["station"];
-            }
-            else{
-                $station = $_COOKIE["stationActueleVertrektijden"];
-            }
+        $station = PostCookie::getInstance()->getPostCookieValue("StationActueleVertrekTijden");
+        if(isset($station)){
         $XMLInput = APIHandler::getInstance()->getVertrekTijden($station);
         /*
          * Check for XML-file. If it's a cache-file, use file_get_contents
