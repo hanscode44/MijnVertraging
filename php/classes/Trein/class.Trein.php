@@ -110,4 +110,22 @@ class Trein {
     {
         return $this->vertrekVertragingTekst;
     }
+
+    public function heeftWijziging(){
+        if($this->vertrekVertragingTekst != null || $this->vertrekSpoorGewijzigd == "true" || $this->opmerkingen != null){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public function rijdtTrein(){
+        if($this->opmerkingen != null && current($this->opmerkingen) == "Rijdt vandaag niet"){
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
 }

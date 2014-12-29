@@ -31,20 +31,24 @@ class HomepageView extends GeneralView{
         echo '<div id="vertrektijden">';
         foreach ($this->getTreinen() as $trein) {
             echo '<div class="treinRit">';
+            echo '<div class="treinRitInfobar">';
             echo '<div class="vertrekTijdInfo">';
+            if($trein->heeftWijziging() == TRUE){
+                echo '<span class="entypo-attention red"></span>';
+            }
+
             echo '<span class="vertrekTijd">' . $trein->getVertrekTijd() . '</span>';
             if ($trein->getVertrekVertragingTekst() != null) {
                 echo '<span class="vertrekVertraging red">' . $trein->getVertrekVertragingTekst() . '</span>';
             }
             echo '</div>';
-            echo '<span class="eindBestemming">' . $trein->getEindbestemming() . '</span>';
+            echo '<span class="eindBestemming '. ($trein->rijdtTrein() == false ? "red strikeThrough" : "") . '">' . $trein->getEindbestemming() . '</span>';
             if($trein->getOpmerkingen() != null){
-                foreach($trein->getOpmerkingen() as $opmerking){
-                    echo '<span class="opmerking red"> ' . $opmerking . '</span>';
-                }
+                echo '<span class="opmerking red"> ' . current($trein->getOpmerkingen()) . '</span>';
             }
             echo '<span class="arrow arrow-down"></span>';
-            echo '<div class="treinRitDetails">';
+            echo '</div>';
+            echo '<div class="treinRitDetails ">';
             if ($trein->getRouteTekst() != "") {
                 echo '<span class="entypo-map routeTekst">Routetekst: ' . $trein->getRouteTekst() . '</span><br />';
             }
@@ -52,6 +56,11 @@ class HomepageView extends GeneralView{
             echo '<span class="entypo-address vertrekSpoor ' . ($trein->getVertrekSpoorGewijzigd() == "true" ? "red":"") . '">Spoor: ' . $trein->getVertrekSpoor() . '</span><br />';
             if ($trein->getReisTip() != ""){
                 echo '<span class="entypo-info-circled entypo-reisTip">Reistip: ' . $trein->getReisTip() . '</span>';
+            }
+            if($trein->getOpmerkingen() != null){
+                foreach($trein->getOpmerkingen() as $opmerking){
+                    echo '<span class="entypo-attention opmerking red"> ' . $opmerking . '</span>';
+                }
             }
             echo '</div>';
             echo '</div>';
