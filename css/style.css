@@ -1,11 +1,13 @@
-@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
-@import url(http://weloveiconfonts.com/api/?family=entypo);
+/*@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);*/
+/*@import url(http://weloveiconfonts.com/api/?family=entypo);*/
+
 /* entypo */
 [class*="entypo-"]:before {
     font-family: 'entypo', sans-serif;
     padding-right: 15px;
     opacity: 0.8;
 }
+
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -25,21 +27,23 @@ body {
 a {
     text-decoration: none;
 }
-h1, h2, h3, h4, h5, h6{
+
+h1, h2, h3, h4, h5, h6 {
     color: #101010;
     padding: 5px 0;
     margin: 5px 0;
     display: block;
 }
-h1{
+
+h1 {
     font-size: 20px;
 }
 
-h2{
+h2 {
     font-size: 18px;
 }
 
-h3{
+h3 {
     font-size: 14px;
 }
 
@@ -51,7 +55,7 @@ nav {
     box-sizing: border-box;
     z-index: 10000;
     position: fixed;
-    margin: 0px 0px 20px;
+    margin: 0 0 20px;
     line-height: 65px;
     overflow: visible;
     border: 1px solid #FFF;
@@ -63,9 +67,9 @@ nav:before, nav:after {
     clear: both;
 }
 
-nav .headerAlignRight{
+nav .headerAlignRight {
     float: right;
-    padding: 0px 25px;
+    padding: 0 25px;
 }
 
 .siteTitle {
@@ -78,42 +82,41 @@ nav .headerAlignRight{
     border-left: 1px solid #f6c036;
     border-right: 1px solid #f6c036;
     background: #FC3;
-    box-shadow: 0px 0px 2px #f6c036;
+    box-shadow: 0 0 2px #f6c036;
 }
-
 
 .container {
     margin-top: 90px;
 }
 
-.treinRit{
+.treinRit {
     background: #FDFDFD;
     color: #202020;
     display: block;
     margin: 10px;
     padding: 10px;
-    box-shadow: 0px 0px 5px #C2C2C2;
+    box-shadow: 0 0 5px #C2C2C2;
     border: 2px solid #FFF;
 }
 
 .treinRit:hover {
     background: #0081C9;
-    box-shadow: 0px 0px 2px #009FF8;
+    box-shadow: 0 0 2px #009FF8;
     color: white;
 }
 
-.vertrekTijdInfo{
+.vertrekTijdInfo {
     border-right: 1px solid #EFEFEF;
     float: left;
     padding-right: 15px;
     margin-right: 15px;
 }
 
-.vertrekTijdInfo .vertrekVertraging{
-    padding: 0px 5px;
+.vertrekTijdInfo .vertrekVertraging {
+    padding: 0 5px;
 }
 
-.treinRitDetails{
+.treinRitDetails {
     display: none;
     background: #f7f7f7;
     padding: 10px;
@@ -121,7 +124,7 @@ nav .headerAlignRight{
     font-style: italic;
 }
 
-.treinRit:hover .treinRitDetails{
+.treinRit:hover .treinRitDetails {
     background: #007bc3;
 }
 
@@ -133,63 +136,72 @@ nav .headerAlignRight{
     float: right;
 }
 
-.treinRit:hover .arrow{
+.treinRit:hover .arrow {
     box-shadow: 3px -3px 0 1px #f7f7f7 inset;
 }
+
 .arrow-left {
     transform: rotate(45deg);
     left: 20px;
 }
+
 .arrow-right {
     transform: rotate(225deg);
     right: 20px;
 }
+
 .arrow-up {
     transform: rotate(135deg);
     top: 5px;
     right: 20px;
 }
+
 .arrow-down {
     transform: rotate(-45deg);
     right: 20px;
 }
 
-.ritNummer{
+.ritNummer {
 
 }
-.vertrekTijd{
+
+.vertrekTijd {
 
 }
-.vertrekVertragingTekst{
+
+.vertrekVertragingTekst {
 
 }
-.eindBestemming{
+
+.eindBestemming {
 
 }
-.treinSoort{
+
+.treinSoort {
 
 }
-.routeTekst{
-    content:'\U+E727';
+
+.routeTekst {
+    content: '\U+E727';
 
 }
-.vertrekSpoor{
+
+.vertrekSpoor {
 
 }
-.vertrekSpoorGewijzigd{
+
+.vertrekSpoorGewijzigd {
 
 }
-.reisTip{
-    content:'\U+E727';
+
+.reisTip {
+    content: '\U+E727';
 }
 
-.red{
+.red {
     color: #EE0000;
     font-weight: bold;
 }
-
-
-
 
 #searchform {
     display: block;
@@ -200,7 +212,7 @@ nav .headerAlignRight{
 
 #search-bar {
     display: block;
-    float:left;
+    float: left;
     padding: .25em .5em;
     font-size: 1.2em;
     height: 55px;
@@ -208,13 +220,13 @@ nav .headerAlignRight{
 
 .output {
     list-style: none;
-    min-height: 0px;
+    min-height: 0;
     border-top: 0 !important;
     color: #767676;
     transition: min-height 0.2s;
     position: absolute;
     z-index: 5;
-    padding: 0px;
+    padding: 0;
     top: 60px;
 }
 
@@ -244,9 +256,13 @@ nav .headerAlignRight{
     cursor: pointer;
 }
 
-.prediction-item strong { color: #333; }
-.prediction-item:hover strong { color: #000; }
+.prediction-item strong {
+    color: #333;
+}
 
+.prediction-item:hover strong {
+    color: #000;
+}
 
 #submit {
     display: block;
@@ -263,22 +279,22 @@ nav .headerAlignRight{
 #submit:hover {
     color: #fff;
     background: #0094e0;
-    box-shadow: 0px 0px 2px #009FF8;
+    box-shadow: 0 0 2px #009FF8;
 }
 
 .introductie {
     padding: 5px 10px;
 }
 
-.strikeThrough{
+.strikeThrough {
     text-decoration: line-through;
 }
 
 /* Responsive */
 
-@media all and (max-width: 750px)  {
+@media all and (max-width: 750px) {
 
-    body{
+    body {
         padding: 0;
     }
 
@@ -287,11 +303,11 @@ nav .headerAlignRight{
         padding: 0;
     }
 
-    #search-bar{
+    #search-bar {
         width: calc(100% - 90px);
     }
 
-    .treinRit{
+    .treinRit {
         margin: 10px 0;
     }
 
