@@ -11,11 +11,10 @@ if (isset($_POST["StationActueleVertrekTijden"])) {
 <!DOCTYPE html>
 <html>
 <head>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script src="js/documentready.js"></script>
-    <title>MijnVertraging</title>
     <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>MijnVertraging</title>
+
 </head>
 <body>
 <header>
@@ -23,7 +22,6 @@ if (isset($_POST["StationActueleVertrekTijden"])) {
         <a href="index.php" class="siteTitle">
             <div>MijnVertraging</div>
         </a>
-
 
         <div class="headerAlignRight">
             <?php ViewController::getInstance()->renderAutoComplete(); ?>
