@@ -1,3 +1,4 @@
 .idea/
 *.cache
 /php/config/conf.NSApiConfig.php
+cache/
