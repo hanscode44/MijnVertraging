@@ -56,7 +56,7 @@ nav {
     z-index: 10000;
     position: fixed;
     margin: 0 0 20px;
-    line-height: 65px;
+    height: 65px;
     overflow: visible;
     border: 1px solid #FFF;
 }
@@ -74,9 +74,10 @@ nav .headerAlignRight {
 
 .siteTitle {
     float: left;
+    height: 62px;
     margin: 0;
-    padding: 0 25px;
-    font-size: 1.25em;
+    padding: 16px 25px;
+    font-size: 1.95em;
     font-weight: 700;
     color: #1151A3;
     border-left: 1px solid #f6c036;
@@ -215,7 +216,7 @@ nav .headerAlignRight {
     float: left;
     padding: .25em .5em;
     font-size: 1.2em;
-    height: 55px;
+    height: 15px;
 }
 
 .output {
@@ -265,14 +266,14 @@ nav .headerAlignRight {
 }
 
 #submit {
-    display: block;
-    padding: .25em .5em;
-    font-size: 1.2em;
+    display: inline-block;
+    /*padding: .25em .5em;*/
+    /*font-size: 1.2em;*/
     color: #FFF;
     border: 1px solid #009FF8;
     background: #0081C9;
     transition: color 0.2s, background 0.2s;
-    height: 55px;
+    height: 15px;
     margin: 5px 0;
 }
 

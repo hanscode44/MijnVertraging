@@ -19,7 +19,7 @@ class AutoCompleteView
 
         $station = PostCookie::getInstance()->getPostCookieValue("StationActueleVertrekTijden");
         echo '<form action="index.php" method="post">';
-        echo '<input type="text" name="StationActueleVertrekTijden" id="search-bar" placeholder="' .
+        echo '<input type="text" name="StationActueleVertrekTijden" id="search-bar" class="form-control" placeholder="' .
             $station .
             '" autocomplete="off"/>';
         echo '<ul class="output" data-stations="';
