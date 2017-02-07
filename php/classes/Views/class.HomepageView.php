@@ -1,5 +1,7 @@
 <?php
 
+namespace Views\HomePageview;
+
 class HomepageView extends GeneralView
 {
 
@@ -13,7 +15,7 @@ class HomepageView extends GeneralView
         ob_start();
 
         echo '<div class="introductie">';
-        $station = PostCookie::getInstance()->getPostCookieValue("StationActueleVertrekTijden");
+         $station = PostCookie::getInstance()->getPostCookieValue("StationActueleVertrekTijden");
         if (isset($station)) {
             echo "Je bekijkt de actuele vertrektijden van het station " . $station;
             echo '</div>';
